@@ -1,9 +1,30 @@
 import React from 'react';
 
-const App = props => {
-  return(
-    <h1>Hello World</h1>
-  )
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signedIn: null
+    };
+  };
+
+  componentWillMount() {
+    fetch('/auth/is_signed_in.json')
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        signedIn: data.signed_in
+      })
+    })
+  };
+
+  render () {
+    return(
+      <div>
+
+      </div>
+    )
+  }
 }
 
 export default App
