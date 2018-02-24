@@ -9,13 +9,14 @@ class SignOutLink extends React.Component {
 
   signOut(event) {
     event.preventDefault();
+    let token = {
+      authenticity_token: Functions.getMetaContent("csrf-token")
+    }
     fetch('/users/sign_out.json', {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
-      data: {
-        authenticity_token: Functions.getMetaContent("csrf-token")
-      }
+      body: JSON.stringify(token)
     })
     window.location.assign("/")
   };

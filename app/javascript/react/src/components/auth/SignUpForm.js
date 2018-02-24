@@ -24,17 +24,13 @@ class SignUpForm extends React.Component {
       credentials: 'same-origin',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      data: {
-        user: formPayLoad,
-        authenticity_token: Functions.getMetaContent("csrf-token")
-      }
+      body: JSON.stringify(formPayLoad)
     })
     .then(response => { return response.json() })
     .then(data => {
-      if (data.error) {
-        this.setState({ errors: data.error })
+      if (data.errors) {
+        this.setState({ errors: data.errors })
       } else {
-        this.setState({ errors: data.messages })
         window.location.assign("/")
       }
     })
@@ -58,10 +54,13 @@ class SignUpForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let formPayLoad = {
-      handle: this.state.handle,
-      email: this.state.email,
-      password: this.state.password,
-      password_confirmation: this.state.password_confirmation
+      user: {
+        handle: this.state.handle,
+        email: this.state.email,
+        password: this.state.password,
+        password_confirmation: this.state.password_confirmation
+      },
+      authenticity_token: Functions.getMetaContent("csrf-token")
     };
     this.addNewUser(formPayLoad);
     this.clearForm()
@@ -79,6 +78,10 @@ class SignUpForm extends React.Component {
         <div style={{paddingLeft:'25%'}}>
           {errors}
         </div>
+        <button
+          onClick={this.props.handleClose}>
+          Close
+        </button>
         <form
           className="signUpForm"
           onSubmit={this.handleSubmit}>
