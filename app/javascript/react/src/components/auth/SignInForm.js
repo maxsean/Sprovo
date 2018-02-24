@@ -31,8 +31,11 @@ class SignInForm extends React.Component {
   handleSignInClick(event) {
     event.preventDefault();
     let formPayload = {
-      email: this.state.email,
-      password: this.state.password
+      user: {
+        email: this.state.email,
+        password: this.state.password
+      },
+      authenticity_token: Functions.getMetaContent("csrf-token")
     }
     this.postSignIn(formPayload);
     this.clearForm()
@@ -43,16 +46,17 @@ class SignInForm extends React.Component {
       credentials: 'same-origin',
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      data: {
-        user: formPayload,
-        authenticity_token: Functions.getMetaContent("csrf-token")
-      }
+      body: JSON.stringify(formPayload)
     })
   }
 
   render() {
     return(
       <div>
+        <button
+          onClick={this.props.handleClose}>
+          Close
+        </button>
         <form
           onSubmit={this.handleSignInClick}>
           <TextInputField
@@ -69,6 +73,9 @@ class SignInForm extends React.Component {
             handleChange={this.handleChange}
             type="password"
           />
+          <div className='button-group'>
+              <input className='button' type='submit' value='Submit' />
+          </div>
         </form>
       </div>
     )
