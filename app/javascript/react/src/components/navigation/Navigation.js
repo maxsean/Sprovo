@@ -19,10 +19,13 @@ class Navigation extends React.Component {
   };
 
   render() {
-    let signOut;
-    if(this.state.session) {
+    let signOut, signIn, signUp;
+    if (this.state.session) {
       signOut = <SignOutLink
       fetchUser={this.props.fetchUser}/>
+    } else {
+      signIn = <NavItem href="#" onClick={this.props.handleSignInButton}>Sign In</NavItem>
+      signUp = <NavItem href="#" onClick={this.props.handleSignUpButton}>Sign Up</NavItem>
     }
 
     return(
@@ -40,6 +43,8 @@ class Navigation extends React.Component {
                 Link
               </NavItem>
               {signOut}
+              {signIn}
+              {signUp}
             </Nav>
           </Navbar.Collapse>
         </Navbar>

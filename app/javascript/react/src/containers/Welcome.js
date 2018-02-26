@@ -1,7 +1,4 @@
 import React from 'react';
-import SignInForm from '../components/auth/SignInForm';
-import SignUpForm from '../components/auth/SignUpForm';
-import SignOutLink from '../components/auth/SignOutLink';
 import { Breadcrumb, Jumbotron, Carousel } from 'react-bootstrap';
 import { railsAssetImagePath } from '../constants/railsAssetImagePath'
 
@@ -9,13 +6,8 @@ class Welcome extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      signIn: false,
-      signUp: false,
       session: null
     }
-    this.handleSignInButton = this.handleSignInButton.bind(this);
-    this.handleSignUpButton = this.handleSignUpButton.bind(this);
-    this.handleCloseButton = this.handleCloseButton.bind(this)
   };
 
   componentDidMount() {
@@ -26,58 +18,20 @@ class Welcome extends React.Component {
     this.setState({ session: nextProps.session });
   };
 
-  handleSignInButton(event) {
-    event.preventDefault();
-    this.setState({
-      signIn: true,
-      signUp: false
-    })
-  }
-
-  handleSignUpButton(event) {
-    event.preventDefault();
-    this.setState({
-      signIn: false,
-      signUp: true
-    })
-  }
-
-  handleCloseButton(event) {
-    event.preventDefault();
-    this.setState({
-      signIn: false,
-      signUp: false
-    })
-  }
-
   render() {
-    let signIn, signUp, signInButton, signUpButton, display;
+    let signInButton, signUpButton;
 
     if(!this.state.session) {
       signInButton = <button
-        onClick={this.handleSignInButton}>Sign In</button>
+        onClick={this.props.handleSignInButton}>Sign In</button>
 
       signUpButton = <button
-        onClick={this.handleSignUpButton}>Sign Up</button>
-    }
-
-    if(this.state.signIn && !this.state.session) {
-      signIn = <SignInForm
-        handleClose={this.handleCloseButton}
-        fetchUser={this.props.fetchUser}/>
-      display = "blur"
-    };
-
-    if(this.state.signUp && !this.state.session) {
-      signUp = <SignUpForm
-        handleClose={this.handleCloseButton}
-        fetchUser={this.props.fetchUser}/>
-      display = "blur"
+        onClick={this.props.handleSignUpButton}>Sign Up</button>
     }
 
     return(
       <div>
-        <div className={display}>
+        <div>
           <Breadcrumb>
             <Breadcrumb.Item active>HOME</Breadcrumb.Item>
             <Breadcrumb.Item href="/about">
@@ -149,8 +103,6 @@ class Welcome extends React.Component {
             </Jumbotron>
           </div>
         </div>
-        {signIn}
-        {signUp}
       </div>
     )
   }
