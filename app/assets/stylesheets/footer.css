@@ -1,0 +1,39 @@
+.footer-container {
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  background-color: #2C3339;
+  color: #F5F5F5;
+}
+
+.footer-container h1, .footer-container h3 {
+  color: white;
+}
+
+.footer-logo, .footer-statements {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 10px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact > div {
+  margin: 1px 0;
+}
+
+.social-media {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.social-media-button {
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 2em;
+  margin: 5px;
+}
