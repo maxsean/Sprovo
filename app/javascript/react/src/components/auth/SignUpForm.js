@@ -1,12 +1,15 @@
 import React from 'react';
 import Functions from '../../utils/Functions';
 import TextInputField from '../textfield/TextInputField';
-import FormErrors from '../errors/FormErrors'
+import FormErrors from '../errors/FormErrors';
+import { Form, FormGroup, Col, ControlLabel, FormControl, Button } from 'react-bootstrap'
 
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      firstname: "",
+      lastname: "",
       handle: "",
       email: "",
       password: "",
@@ -38,6 +41,8 @@ class SignUpForm extends React.Component {
 
   clearForm() {
     this.setState({
+      firstname: "",
+      lastname: "",
       handle: "",
       email: "",
       password: "",
@@ -74,50 +79,97 @@ class SignUpForm extends React.Component {
       errors = <FormErrors formErrors={this.state.errors}/>
     };
     return(
-      <div className="signUpFormContainer">
-        <div style={{paddingLeft:'25%'}}>
-          {errors}
-        </div>
-        <button
-          onClick={this.props.handleClose}>
-          Close
-        </button>
-        <form
-          className="signUpForm"
-          onSubmit={this.handleSubmit}>
-          <h3>Sign Up</h3>
-          <TextInputField
-            content={this.state.handle}
-            label="Username: "
-            name="handle"
-            handleChange={this.handleChange}
-            type="text"
-          />
-          <TextInputField
-            content={this.state.email}
-            label="Email: "
-            name="email"
-            handleChange={this.handleChange}
-            type="text"
-          />
-          <TextInputField
-            content={this.state.password}
-            label="Password: "
-            name="password"
-            handleChange={this.handleChange}
-            type="password"
-          />
-          <TextInputField
-            content={this.state.password_confirmation}
-            label="Confirmation: "
-            name="password_confirmation"
-            handleChange={this.handleChange}
-            type="password"
-          />
-          <div className='button-group'>
-              <input className='button' type='submit' value='Submit' />
+      <div className="signup-form-container">
+        <div className="signup-form">
+          <div>
+            {errors}
           </div>
-        </form>
+          <Button
+            onClick={this.props.handleClose}>
+            Close
+          </Button>
+          <Form horizontal
+            onSubmit={this.handleSubmit}>
+            <h3>Sign Up</h3>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                First Name
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="text"
+                  placeholder="First Name"
+                  name="firstname"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Last Name
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="text"
+                  placeholder="Last Name"
+                  name="lastname"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Username
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="text"
+                  placeholder="Username"
+                  name="handle"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Email
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Password
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="password"
+                  placeholder=""
+                  name="password"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup controlId="formHorizontalEmail">
+              <Col componentClass={ControlLabel} sm={2}>
+                Password Confirmation
+              </Col>
+              <Col sm={10}>
+                <FormControl
+                  type="password"
+                  placeholder=""
+                  name="password_confirmation"
+                  onChange={this.handleChange}/>
+              </Col>
+            </FormGroup>
+            <FormGroup>
+              <Col smOffset={2} sm={10}>
+                <Button type="submit">Register</Button>
+              </Col>
+            </FormGroup>
+          </Form>
+        </div>
       </div>
     );
   };
