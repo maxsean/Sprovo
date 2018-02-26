@@ -1,5 +1,6 @@
 import React from 'react';
-import Functions from '../../utils/Functions'
+import Functions from '../../utils/Functions';
+import { NavItem } from 'react-bootstrap'
 
 class SignOutLink extends React.Component {
   constructor(props) {
@@ -12,18 +13,21 @@ class SignOutLink extends React.Component {
     let token = {
       authenticity_token: Functions.getMetaContent("csrf-token")
     }
-    fetch('/users/sign_out.json', {
+    fetch('/users/sign_out', {
       credentials: 'same-origin',
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(token)
     })
-    window.location.assign("/")
+    .then(response => {
+      this.props.fetchUser})
+    .then(response => {
+      window.location.assign("/")})
   };
 
   render() {
     return(
-      <a href="#" onClick={this.signOut}>Sign Out</a>
+      <NavItem href="#" onClick={this.signOut}>Sign Out</NavItem>
     )
   }
 }

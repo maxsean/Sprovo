@@ -1,6 +1,7 @@
 import React from 'react';
 import Functions from '../../utils/Functions';
-import TextInputField from '../textfield/TextInputField'
+import TextInputField from '../textfield/TextInputField';
+import { Form, FormGroup, Col, ControlLabel, FormControl, Button } from 'react-bootstrap'
 
 class SignInForm extends React.Component {
   constructor(props) {
@@ -48,35 +49,58 @@ class SignInForm extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formPayload)
     })
+    .then(response => {
+      this.props.fetchUser})
+    .then(response => {
+      window.location.assign("/profile")})
   }
 
   render() {
     return(
-      <div>
-        <button
-          onClick={this.props.handleClose}>
-          Close
-        </button>
-        <form
-          onSubmit={this.handleSignInClick}>
-          <TextInputField
-            content={this.state.email}
-            label="Email: "
-            name="email"
-            handleChange={this.handleChange}
-            type="text"
-          />
-          <TextInputField
-            content={this.state.password}
-            label="Password: "
-            name="password"
-            handleChange={this.handleChange}
-            type="password"
-          />
-          <div className='button-group'>
-              <input className='button' type='submit' value='Submit' />
-          </div>
-        </form>
+      <div className="signin-form-container">
+        <div className="signin-form">
+          <Button
+            onClick={this.props.handleClose}>
+            Close
+          </Button>
+          <Form horizontal
+            onSubmit={this.handleSignInClick}
+            >
+              <h3>Sign In</h3>
+              <FormGroup controlId="formHorizontalEmail">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Email
+                </Col>
+                <Col sm={10}>
+                  <FormControl
+                    type="email"
+                    placeholder="Email"
+                    onChange={this.handleChange}
+                    name="email" />
+                </Col>
+              </FormGroup>
+
+              <FormGroup controlId="formHorizontalPassword">
+                <Col componentClass={ControlLabel} sm={2}>
+                  Password
+                </Col>
+                <Col sm={10}>
+                  <FormControl
+                    type="password"
+                    placeholder="Password"
+                    onChange={this.handleChange}
+                    name="password"
+                  />
+                </Col>
+              </FormGroup>
+
+              <FormGroup>
+                <Col smOffset={2} sm={10}>
+                  <Button type="submit">Sign in</Button>
+                </Col>
+              </FormGroup>
+            </Form>
+        </div>
       </div>
     )
   }
