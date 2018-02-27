@@ -67,16 +67,16 @@ class App extends React.Component {
   };
 
   render () {
-    let signIn, signUp, display;
+    let signIn, signUp, display, profile;
 
-    if(this.state.signIn && !this.state.session) {
+    if(this.state.signIn && !this.state.user) {
       signIn = <SignInForm
         handleClose={this.handleCloseButton}
         fetchUser={this.props.fetchUser}/>
       display = "blur"
     };
 
-    if(this.state.signUp && !this.state.session) {
+    if(this.state.signUp && !this.state.user) {
       signUp = <SignUpForm
         handleClose={this.handleCloseButton}
         fetchUser={this.props.fetchUser}/>
@@ -90,8 +90,12 @@ class App extends React.Component {
             session={this.state.signedIn}
             fetchUser={this.fetchUser}
             handleSignInButton={this.handleSignInButton}
-            handleSignUpButton={this.handleSignUButton}
+            handleSignUpButton={this.handleSignUpButton}
           />
+          <br/>
+          <br/>
+          <br/>
+          <br/>
           <Route exact={true} path="/" render={() => <Welcome
             session={this.state.signedIn}
             fetchUser={this.fetchUser}
@@ -99,7 +103,7 @@ class App extends React.Component {
             handleSignUpButton={this.handleSignUpButton}
           />}
           />
-          <Route path="/profile" render={() => <Profile user={this.state.user}/>}/>
+          <Route path="/profile" render={() => <Profile user={this.state.user} fetchUser={this.fetchUser}/>}/>
           <Footer/>
         </div>
         {signIn}
