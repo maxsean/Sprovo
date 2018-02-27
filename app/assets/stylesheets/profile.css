@@ -1,0 +1,26 @@
+.bio-form {
+  background-color: #F5F5F5;
+  padding: 30px;
+}
+
+.profile-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.profile-header {
+  margin: 0 10px;
+}
+
+
+.tabs-container {
+  width: 70%;
+  height: auto;
+  font-size: 2em;
+}
+
+.user-basics {
+  width: 30%;
+  height: auto;
+}
