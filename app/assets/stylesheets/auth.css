@@ -1,3 +1,7 @@
+.user-signin-form, .user-signup-form, .user-edit-form {
+  padding: 15%
+}
+
 .signin-form-container {
   z-index: 1;
   position: fixed;

@@ -8,8 +8,8 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       handle: "",
       email: "",
       password: "",
@@ -34,15 +34,15 @@ class SignUpForm extends React.Component {
       if (data.errors) {
         this.setState({ errors: data.errors })
       } else {
-        window.location.assign("/")
+        window.location.assign("/profile")
       }
     })
   };
 
   clearForm() {
     this.setState({
-      firstname: "",
-      lastname: "",
+      first_name: "",
+      last_name: "",
       handle: "",
       email: "",
       password: "",
@@ -60,6 +60,8 @@ class SignUpForm extends React.Component {
     event.preventDefault();
     let formPayLoad = {
       user: {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
         handle: this.state.handle,
         email: this.state.email,
         password: this.state.password,
@@ -91,7 +93,7 @@ class SignUpForm extends React.Component {
           <Form horizontal
             onSubmit={this.handleSubmit}>
             <h3>Sign Up</h3>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup controlId="formHorizontalFirstName">
               <Col componentClass={ControlLabel} sm={2}>
                 First Name
               </Col>
@@ -99,11 +101,11 @@ class SignUpForm extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="First Name"
-                  name="firstname"
+                  name="first_name"
                   onChange={this.handleChange}/>
               </Col>
             </FormGroup>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup controlId="formHorizontalLastName">
               <Col componentClass={ControlLabel} sm={2}>
                 Last Name
               </Col>
@@ -111,11 +113,11 @@ class SignUpForm extends React.Component {
                 <FormControl
                   type="text"
                   placeholder="Last Name"
-                  name="lastname"
+                  name="last_name"
                   onChange={this.handleChange}/>
               </Col>
             </FormGroup>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup controlId="formHorizontalUsername">
               <Col componentClass={ControlLabel} sm={2}>
                 Username
               </Col>
@@ -139,7 +141,7 @@ class SignUpForm extends React.Component {
                   onChange={this.handleChange}/>
               </Col>
             </FormGroup>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup controlId="formHorizontalPassword">
               <Col componentClass={ControlLabel} sm={2}>
                 Password
               </Col>
@@ -151,7 +153,7 @@ class SignUpForm extends React.Component {
                   onChange={this.handleChange}/>
               </Col>
             </FormGroup>
-            <FormGroup controlId="formHorizontalEmail">
+            <FormGroup controlId="formHorizontalPasswordConfirm">
               <Col componentClass={ControlLabel} sm={2}>
                 Password Confirmation
               </Col>

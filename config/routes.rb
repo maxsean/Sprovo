@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     get 'is_signed_in', to: 'auth#is_signed_in?'
   end
 
+  namespace :api do
+    namespace :v1 do
+      resources :users, only: [:index, :show, :update, :delete]
+    end
+  end
+
   root 'static_pages#index'
 
   get '*path', to: 'static_pages#index'
