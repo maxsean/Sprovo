@@ -19,8 +19,9 @@ class Navigation extends React.Component {
   };
 
   render() {
-    let signOut, signIn, signUp;
+    let signOut, signIn, signUp, profile;
     if (this.state.session) {
+      profile = <NavItem href="/profile">My Profile</NavItem>
       signOut = <SignOutLink
       fetchUser={this.props.fetchUser}/>
     } else {
@@ -30,7 +31,7 @@ class Navigation extends React.Component {
 
     return(
       <div>
-        <Navbar collapseOnSelect>
+        <Navbar fixedTop collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
               <a href="/">Sporvo</a>
@@ -42,6 +43,7 @@ class Navigation extends React.Component {
               <NavItem eventKey={1} href="#">
                 Link
               </NavItem>
+              {profile}
               {signOut}
               {signIn}
               {signUp}
