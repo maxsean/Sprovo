@@ -11,6 +11,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem "carrierwave"
 gem "fog-aws"
+gem "mini_magick"
 
 group :development do
   gem 'listen', '~> 3.0.5'
