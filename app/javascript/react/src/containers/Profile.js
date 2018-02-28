@@ -1,5 +1,6 @@
 import React from 'react';
-import Bio from '../components/profile/Bio'
+import Bio from '../components/profile/Bio';
+import ProfileImage from '../components/profile/ProfileImage';
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert } from 'react-bootstrap';
 
 class Profile extends React.Component {
@@ -51,6 +52,8 @@ class Profile extends React.Component {
         </div>
         <div className="profile-container">
           <div className="user-basics">
+            <ProfileImage
+              user={this.props.user}/>
             <div className="contact">
               <div>
                 <Glyphicon glyph="earphone">
