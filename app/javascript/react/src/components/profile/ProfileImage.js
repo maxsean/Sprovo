@@ -29,8 +29,7 @@ class ProfileImage extends React.Component {
 
   render() {
     let picture, upload;
-
-    if (this.props.user && this.props.user.profile_photo) {
+    if (this.props.user && this.props.user.profile_photo.url) {
       picture = this.props.user.profile_photo.large.url
     } else {
       picture = railsAssetImagePath(`default_photo.png`)
