@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users, only: [:index, :show, :update, :delete]
       resources :images, only: [:update]
+      resources :mentees, only: [:index, :show]
     end
   end
 

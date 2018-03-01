@@ -49,10 +49,14 @@ class SignInForm extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formPayload)
     })
-    .then(response => {
-      this.props.fetchUser})
-    .then(response => {
-      window.location.assign("/profile")})
+    .then(response => response.json())
+    .then(data => {
+      if (data.role == "student") {
+        window.location.assign("/profile")
+      } else if (data.role == "mentor") {
+        window.location.assign("/mentor")
+      }
+    })
   }
 
   render() {

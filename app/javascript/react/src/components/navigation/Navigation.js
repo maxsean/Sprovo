@@ -19,9 +19,14 @@ class Navigation extends React.Component {
   };
 
   render() {
-    let signOut, signIn, signUp, profile;
-    if (this.state.session) {
-      profile = <NavItem href="/profile">My Profile</NavItem>
+    let signOut, signIn, signUp, profile, landing;
+    if (this.state.session && this.props.user) {
+      if (this.props.user.role == "student") {
+        landing = "/profile"
+      } else if (this.props.user.role == "mentor") {
+        landing = "/mentor"
+      }
+      profile = <NavItem href={landing}>My Profile</NavItem>
       signOut = <SignOutLink
       fetchUser={this.props.fetchUser}/>
     } else {
@@ -40,9 +45,6 @@ class Navigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">
-                Link
-              </NavItem>
               {profile}
               {signOut}
               {signIn}

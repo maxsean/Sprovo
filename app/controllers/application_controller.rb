@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def after_sign_in_path_for(resource)
-    "/profile"
+    "/profile" if current_user.role == "student"
+    "/mentor" if current_user.role == "mentor"
   end
 
   def after_sign_out_path_for(resource_or_scope)
