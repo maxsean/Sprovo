@@ -6,7 +6,9 @@ import SignInForm from './components/auth/SignInForm';
 import SignUpForm from './components/auth/SignUpForm';
 import SignOutLink from './components/auth/SignOutLink';
 import Footer from './components/navigation/Footer';
-import Profile from './containers/Profile'
+import Profile from './containers/Profile';
+import MentorProfile from './containers/MentorProfile';
+import MenteeProfile from './containers/MenteeProfile'
 
 class App extends React.Component {
   constructor(props) {
@@ -88,6 +90,7 @@ class App extends React.Component {
         <div className={display}>
           <Navigation
             session={this.state.signedIn}
+            user={this.state.user}
             fetchUser={this.fetchUser}
             handleSignInButton={this.handleSignInButton}
             handleSignUpButton={this.handleSignUpButton}
@@ -104,6 +107,8 @@ class App extends React.Component {
           />}
           />
           <Route path="/profile" render={() => <Profile user={this.state.user} fetchUser={this.fetchUser}/>}/>
+          <Route path="/mentor" render={() => <MentorProfile user={this.state.user} />}/>
+          <Route path="/student/:id" component={MenteeProfile}/>
           <Footer/>
         </div>
         {signIn}
