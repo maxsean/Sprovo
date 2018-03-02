@@ -9,7 +9,7 @@ const MenteeTile = (props) => {
     event.preventDefault();
     window.location.assign(`/student/${props.mentee.id}`)
   };
-  
+
   let image = railsAssetImagePath(`default_photo.png`)
 
   if (props.mentee.profile_photo.thumb.url) {
@@ -23,7 +23,7 @@ const MenteeTile = (props) => {
       >
       <img width={50} height={50} src={image}/>
       <div>
-        <strong><p>{props.mentee.first_name} {props.mentee.last_name}</p></strong>
+        <strong><p>{props.mentee.last_name}, {props.mentee.first_name} </p></strong>
       </div>
       <div className="contact" style={{fontSize:"0.5em"}}>
         <span>
