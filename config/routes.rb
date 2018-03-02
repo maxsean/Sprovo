@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :images, only: [:update]
       resources :mentees, only: [:index, :show]
       resources :grades, only: [:create, :show, :update, :destroy]
+      resources :stats, only: [:create, :show, :update, :destroy]
     end
   end
 
