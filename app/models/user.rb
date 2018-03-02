@@ -8,8 +8,10 @@ class User < ApplicationRecord
 
   belongs_to :mentor, class_name: "User", optional: true
 
-  has_many :grades 
+  has_many :grades
   has_many :courses, through: :grades
+  has_many :sport_stats
+  has_many :sports, through: :sport_stats
 
   has_many :mentees, class_name: "User", foreign_key: "mentor_id"
 
