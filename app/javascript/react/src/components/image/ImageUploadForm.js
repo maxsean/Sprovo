@@ -3,8 +3,6 @@ import Dropzone from 'react-dropzone';
 import Functions from '../../utils/Functions';
 import { Button, Alert } from 'react-bootstrap'
 
-var Spinner = require('react-spinkit')
-
 class ImageUploadForm extends React.Component {
   constructor(props) {
     super(props);
