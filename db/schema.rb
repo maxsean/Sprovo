@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301211553) do
+ActiveRecord::Schema.define(version: 20180302213249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,26 @@ ActiveRecord::Schema.define(version: 20180301211553) do
     t.index ["course_id"], name: "index_grades_on_course_id"
     t.index ["user_id", "course_id"], name: "index_grades_on_user_id_and_course_id", unique: true
     t.index ["user_id"], name: "index_grades_on_user_id"
+  end
+
+  create_table "sport_stats", force: :cascade do |t|
+    t.bigint "sport_id"
+    t.bigint "user_id"
+    t.string "description", null: false
+    t.integer "stat", null: false
+    t.string "position", null: false
+    t.string "year", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sport_id"], name: "index_sport_stats_on_sport_id"
+    t.index ["user_id"], name: "index_sport_stats_on_user_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_sports_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

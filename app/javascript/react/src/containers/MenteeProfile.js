@@ -1,6 +1,7 @@
 import React from 'react';
 import ProfileImage from '../components/profile/ProfileImage';
-import GradeYear from '../components/grades/GradesYear'
+import GradeYear from '../components/grades/GradesYear';
+import StatsSport from '../components/athletics/StatsSport';
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert, Jumbotron, Button } from 'react-bootstrap';
 import { railsAssetImagePath } from '../constants/railsAssetImagePath';
 
@@ -118,7 +119,7 @@ class MenteeProfile extends React.Component {
           <div className="tabs-container">
             <Tabs defaultActiveKey={1} id="uncontrolled-tabs">
               <Tab eventKey={1} title="Overview">
-                <Jumbotron>
+                <Jumbotron style={{margin:"2% 0"}}>
                   <h3>
                     Get to know {first_name}
                   </h3>
@@ -128,7 +129,11 @@ class MenteeProfile extends React.Component {
                 </Jumbotron>
               </Tab>
               <Tab eventKey={2} title="Athletics">
-                Athletics
+                <StatsSport
+                  id={id}
+                  user={user}
+                  current_user={current_user}
+                />
               </Tab>
               <Tab eventKey={3} title="Grades">
                 <GradeYear

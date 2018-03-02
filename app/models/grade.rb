@@ -6,4 +6,6 @@ class Grade < ApplicationRecord
     scope: :course_id
   }
   validates :score, presence: true
+  validates :year, presence: true
+  validates :quarter, presence: true
 end

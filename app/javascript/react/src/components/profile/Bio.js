@@ -48,7 +48,7 @@ class Bio extends React.Component {
     };
 
     return(
-      <div>
+      <div className="bio">
         <Jumbotron>
           <h3>
             Get to know {firstname}

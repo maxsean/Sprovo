@@ -1,5 +1,5 @@
 import React from 'react';
-import GradesCourse from './GradesCourse'
+import GradesCourse from './GradesCourse';
 import { Panel } from 'react-bootstrap'
 
 const GradesQuarter = (props) => {

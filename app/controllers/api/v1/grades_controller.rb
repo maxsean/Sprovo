@@ -14,7 +14,7 @@ class Api::V1::GradesController < Api::V1::ApiController
       if new_grade.save
         render json: {success: "Update Successful"}
       else
-        render json: {error: "This record already exists. Check the grades."}
+        render json: {error: "An error occurred. Make sure all fields are filled or if the record already exits."}
       end
     else
       render json: {error: "You do not have permission to edit this information"}
@@ -74,9 +74,12 @@ class Api::V1::GradesController < Api::V1::ApiController
     if current_user.mentees.include?(mentee)
       course = Course.find_by(name: body["course"])
       grade = Grade.find_by(user: mentee, course: course)
-      grade.destroy
 
-      render json: {success: "Delete Successful"}
+      if grade.destroy
+        render json: {success: "Delete Successful"}
+      else
+        render json: {error: "An error has occurred"}
+      end
     else
       render json: {error: "You do not have permission to delete this information"}
     end
