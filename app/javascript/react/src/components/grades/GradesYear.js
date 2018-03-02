@@ -17,6 +17,7 @@ class GradesYear extends React.Component {
     this.deleteGrades = this.deleteGrades.bind(this);
     this.fetchGrades = this.fetchGrades.bind(this);
     this.handleAddButton = this.handleAddButton.bind(this);
+    this.handleDismiss = this.handleDismiss.bind(this);
     this.handleCloseButton = this.handleCloseButton.bind(this);
     this.updateGrades = this.updateGrades.bind(this)
   };
@@ -116,6 +117,14 @@ class GradesYear extends React.Component {
     })
   };
 
+  handleDismiss(event) {
+    event.preventDefault();
+    this.setState({
+      error: null,
+      success: null
+    })
+  };
+
   updateGrades(course, score, user_id) {
     let payload = {
       user_id: user_id,
@@ -156,13 +165,13 @@ class GradesYear extends React.Component {
     }
 
     if (this.state.error) {
-      error = <Alert bsStyle='warning'>
+      error = <Alert bsStyle='warning' onDismiss={this.handleDismiss}>
         <p>{this.state.error}</p>
       </Alert>
     };
 
     if (this.state.success) {
-      success = <Alert bsStyle='success'>
+      success = <Alert bsStyle='success' onDismiss={this.handleDismiss}>
         <p>{this.state.success}</p>
       </Alert>
     };
@@ -171,7 +180,7 @@ class GradesYear extends React.Component {
       let grades = this.state.grades
       gradesyear = Object.keys(grades).map(key => {
         return(
-          <Panel key={key}>
+          <Panel key={key} bsStyle="info">
             <Panel.Heading>
               <Panel.Title toggle>
                 {key}
