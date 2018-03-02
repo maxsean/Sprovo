@@ -1,14 +1,15 @@
 import React from 'react';
 import Functions from '../../utils/Functions';
 import TextInputField from '../textfield/TextInputField';
-import { Form, FormGroup, Col, ControlLabel, FormControl, Button } from 'react-bootstrap'
+import { Form, FormGroup, Col, ControlLabel, FormControl, Button, Alert } from 'react-bootstrap'
 
 class SignInForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      error: null
     };
     this.clearForm = this.clearForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -51,26 +52,35 @@ class SignInForm extends React.Component {
     })
     .then(response => response.json())
     .then(data => {
-      if (data.role == "student") {
-        window.location.assign("/profile")
-      } else if (data.role == "mentor") {
-        window.location.assign("/mentor")
+      if (data.error) {
+        this.setState({
+          error: data.error
+        })
+      } else {
+        if (data.role == "student") {
+          window.location.assign("/profile")
+        } else if (data.role == "mentor") {
+          window.location.assign("/mentor")
+        }
       }
     })
   }
 
   render() {
+    let error;
+
+    if (this.state.error) {
+      error = <Alert bsStyle="warning">
+        {this.state.error}
+      </Alert>
+    }
     return(
       <div className="signin-form-container">
         <div className="signin-form">
-          <Button
-            onClick={this.props.handleClose}>
-            Close
-          </Button>
+          {error}
           <Form horizontal
             onSubmit={this.handleSignInClick}
             >
-              <h3>Sign In</h3>
               <FormGroup controlId="formHorizontalEmail">
                 <Col componentClass={ControlLabel} sm={2}>
                   Email
@@ -97,7 +107,7 @@ class SignInForm extends React.Component {
                   />
                 </Col>
               </FormGroup>
-
+              <br/>
               <FormGroup>
                 <Col smOffset={2} sm={10}>
                   <Button type="submit">Sign in</Button>

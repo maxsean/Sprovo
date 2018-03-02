@@ -86,13 +86,8 @@ class SignUpForm extends React.Component {
           <div>
             {errors}
           </div>
-          <Button
-            onClick={this.props.handleClose}>
-            Close
-          </Button>
           <Form horizontal
             onSubmit={this.handleSubmit}>
-            <h3>Sign Up</h3>
             <FormGroup controlId="formHorizontalFirstName">
               <Col componentClass={ControlLabel} sm={2}>
                 First Name
@@ -165,6 +160,7 @@ class SignUpForm extends React.Component {
                   onChange={this.handleChange}/>
               </Col>
             </FormGroup>
+            <br/>
             <FormGroup>
               <Col smOffset={2} sm={10}>
                 <Button type="submit">Register</Button>

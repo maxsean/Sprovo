@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
+import { Modal } from 'react-bootstrap'
 import Welcome from './containers/Welcome';
 import Navigation from './components/navigation/Navigation';
 import SignInForm from './components/auth/SignInForm';
@@ -20,7 +21,7 @@ class App extends React.Component {
       user: null
     };
     this.fetchUser = this.fetchUser.bind(this)
-    this.handleCloseButton = this.handleCloseButton.bind(this)
+    this.handleCloseButton = this.handleCloseButton.bind(this);
     this.handleSignInButton = this.handleSignInButton.bind(this);
     this.handleSignUpButton = this.handleSignUpButton.bind(this);
   };
@@ -69,21 +70,11 @@ class App extends React.Component {
   };
 
   render () {
-    let signIn, signUp, display, profile;
+    let display, profile;
 
-    if(this.state.signIn && !this.state.user) {
-      signIn = <SignInForm
-        handleClose={this.handleCloseButton}
-        fetchUser={this.props.fetchUser}/>
+    if(this.state.signIn || this.state.signUp && !this.state.user) {
       display = "blur"
     };
-
-    if(this.state.signUp && !this.state.user) {
-      signUp = <SignUpForm
-        handleClose={this.handleCloseButton}
-        fetchUser={this.props.fetchUser}/>
-      display = "blur"
-    }
 
     return(
       <div>
@@ -111,8 +102,24 @@ class App extends React.Component {
           <Route path="/student/:id" component={MenteeProfile}/>
           <Footer/>
         </div>
-        {signIn}
-        {signUp}
+        <Modal show={this.state.signIn} onHide={this.handleCloseButton}>
+          <Modal.Header closeButton>
+            <Modal.Title>Sign In</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <SignInForm
+              fetchUser={this.props.fetchUser}/>
+          </Modal.Body>
+        </Modal>
+        <Modal show={this.state.signUp} onHide={this.handleCloseButton}>
+          <Modal.Header closeButton>
+            <Modal.Title>Sign Up</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <SignUpForm
+              fetchUser={this.props.fetchUser}/>
+          </Modal.Body>
+        </Modal>
       </div>
     )
   }
