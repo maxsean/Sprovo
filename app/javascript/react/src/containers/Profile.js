@@ -1,7 +1,8 @@
 import React from 'react';
 import Bio from '../components/profile/Bio';
 import ProfileImage from '../components/profile/ProfileImage';
-import GradesYear from '../components/grades/GradesYear'
+import GradesYear from '../components/grades/GradesYear';
+import StatsSport from '../components/athletics/StatsSport';
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert } from 'react-bootstrap';
 
 class Profile extends React.Component {
@@ -77,7 +78,9 @@ class Profile extends React.Component {
                   fetchUser={this.props.fetchUser}/>
               </Tab>
               <Tab eventKey={2} title="Athletics">
-                Athletics
+                <StatsSport
+                  user={user}
+                  id={id}/>
               </Tab>
               <Tab eventKey={3} title="Grades">
                 <GradesYear
