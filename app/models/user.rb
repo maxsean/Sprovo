@@ -6,9 +6,13 @@ class User < ApplicationRecord
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
+  belongs_to :mentor, class_name: "User", optional: true
+
+  has_many :grades 
+  has_many :courses, through: :grades
+
   has_many :mentees, class_name: "User", foreign_key: "mentor_id"
 
-  belongs_to :mentor, class_name: "User", optional: true
 
   private
    def avatar_size_validation

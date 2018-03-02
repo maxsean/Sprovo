@@ -2,7 +2,7 @@ class Api::V1::MenteesController < Api::V1::ApiController
 
   def index
     if current_user
-      mentees = current_user.mentees
+      mentees = current_user.mentees.order('last_name')
       render json: mentees
     else
       render json: {error: "Please Sign In"}
@@ -13,7 +13,7 @@ class Api::V1::MenteesController < Api::V1::ApiController
     if current_user
       mentee = User.find(params[:id])
 
-      if current_user.mentees.include?(mentee)
+      if current_user == mentee || current_user.mentees.include?(mentee)
         render json: mentee
       else
         render json: {error: "You do not have permission to view this page"}
