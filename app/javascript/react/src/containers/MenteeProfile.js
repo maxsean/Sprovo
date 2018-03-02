@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfileImage from '../components/profile/ProfileImage';
+import GradeYear from '../components/grades/GradesYear'
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert, Jumbotron, Button } from 'react-bootstrap';
 import { railsAssetImagePath } from '../constants/railsAssetImagePath';
 
@@ -7,14 +8,17 @@ class MenteeProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      current_user: null,
       user: null,
       error: null
     };
-    this.fetchMentee = this.fetchMentee.bind(this)
+    this.fetchMentee = this.fetchMentee.bind(this);
+    this.fetchUser = this.fetchUser.bind(this)
   };
 
   componentDidMount() {
-    this.fetchMentee()
+    this.fetchMentee();
+    this.fetchUser()
   };
 
   fetchMentee() {
@@ -38,14 +42,35 @@ class MenteeProfile extends React.Component {
     })
   }
 
+  fetchUser() {
+    fetch('/auth/is_signed_in.json', {
+      credentials: 'same-origin',
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' }
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({
+        current_user: data.user
+      })
+    })
+  };
+
+
   render() {
-    let first_name, last_name, email, bio, user, picture, error;
+    let first_name, last_name, email, bio, user, picture, error, id, current_user;
+    if (this.state.current_user) {
+      current_user = this.state.current_user
+    }
+
     if (this.state.user) {
       first_name = this.state.user.first_name
       last_name = this.state.user.last_name
       email = this.state.user.email
       bio = this.state.user.bio
       user = this.state.user
+      id = this.state.user.id
+
       picture = railsAssetImagePath(`default_photo.png`)
 
       if (this.state.user.profile_photo.large.url) {
@@ -106,7 +131,11 @@ class MenteeProfile extends React.Component {
                 Athletics
               </Tab>
               <Tab eventKey={3} title="Grades">
-                Grades
+                <GradeYear
+                  id={id}
+                  user={user}
+                  current_user={current_user}
+                />
               </Tab>
             </Tabs>
           </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import Bio from '../components/profile/Bio';
 import ProfileImage from '../components/profile/ProfileImage';
+import GradesYear from '../components/grades/GradesYear'
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert } from 'react-bootstrap';
 
 class Profile extends React.Component {
@@ -22,13 +23,14 @@ class Profile extends React.Component {
   };
 
   render() {
-    let first_name, last_name, email, bio, user, signin;
+    let first_name, last_name, email, bio, user, signin, id;
     if (this.props.user) {
       first_name = this.state.user.first_name
       last_name = this.state.user.last_name
       email = this.state.user.email
       bio = this.state.user.bio
       user = this.state.user
+      id = this.state.user.id
     } else {
       signin = <Alert bsStyle="warning" style={{textAlign:"center", fontSize:"2em"}}>
         <strong><a href="/users/sign_in">Please Sign In</a></strong>
@@ -78,7 +80,9 @@ class Profile extends React.Component {
                 Athletics
               </Tab>
               <Tab eventKey={3} title="Grades">
-                Grades
+                <GradesYear
+                  user={user}
+                  id={id}/>
               </Tab>
             </Tabs>
           </div>
