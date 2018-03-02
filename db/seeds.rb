@@ -2,7 +2,7 @@ user1 = User.create!(first_name: "John", last_name: "Smith", handle: "jsmith", e
 
 user2 = User.create!(first_name: "Jill", last_name: "Jones", handle: "jill.j", email: "jill.jones@maily.com", password: "654321", mentor_id: user1.id)
 
-user3 = User.create!(first_name: "Franklin", last_name: "Brown", handle: "b_frank", email: "frank_brown@gmail.com", password: "121212", mentor_id: user1.id)
+user3 = User.create!(first_name: "Franklin", last_name: "Brown", handle: "b_frank", email: "frank_brown@maily.com", password: "121212", mentor_id: user1.id)
 
 course1 = Course.create!(name: "American Literature")
 course2 = Course.create!(name: "Trigonometry")
@@ -48,3 +48,21 @@ grade10 = Grade.create!(user_id: user3.id, course_id: course2.id, year: "2017-20
 grade11 = Grade.create!(user_id: user3.id, course_id: course3.id, year: "2017-2018", quarter: "1st", score: "A-")
 
 grade12 = Grade.create!(user_id: user3.id, course_id: course4.id, year: "2017-2018", quarter: "1st", score: "A+")
+
+sport1 = Sport.create!(name: "Football")
+
+stat1 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Offense", description: "Passing Yards", stat: 200)
+
+stat2 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Offense", description: "Rushing Yards", stat: 276)
+
+stat3 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Offense", description: "Receiving Yards", stat: 50)
+
+stat4 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Defense", description: "Interceptions", stat: 3)
+
+stat5 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Defense", description: "Tackles", stat: 20)
+
+stat6 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Defense", description: "Sacks", stat: 4)
+
+stat7 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Defense", description: "Pass Deflections", stat: 6)
+
+stat8 = SportStat.create!(sport: sport1, user: user2, year: "2017-2018", position: "Defense", description: "Forced Fumbles", stat: 4)
