@@ -1,0 +1,12 @@
+.grades-course-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grades-year {
+  margin: 2% 0;
+}
+
+.grades-table {
+  font-size: 0.5em;
+}
