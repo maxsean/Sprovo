@@ -9,9 +9,10 @@ gem 'webpacker'
 gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem "carrierwave"
-gem "fog-aws"
-gem "mini_magick"
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+gem 'rails_admin', '~> 1.3'
 
 group :development do
   gem 'listen', '~> 3.0.5'
@@ -20,7 +21,7 @@ group :development do
 end
 
 group :development, :test do
-  gem "dotenv-rails"
+  gem 'dotenv-rails'
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'launchy', require: false

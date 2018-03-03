@@ -61,6 +61,8 @@ class SignInForm extends React.Component {
           window.location.assign("/profile")
         } else if (data.role == "mentor") {
           window.location.assign("/mentor")
+        } else if (data.role == "admin") {
+          window.location.assign("/admin")
         }
       }
     })

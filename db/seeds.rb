@@ -1,3 +1,5 @@
+admin = User.create!(first_name: "Sporvo", last_name: "Admin", handle: "theadmin", email: "admin@maily.com", password: "123456", role: "admin", admin: true)
+
 user1 = User.create!(first_name: "John", last_name: "Smith", handle: "jsmith", email: "john.smith@maily.com", password: "123456", role: "mentor")
 
 user2 = User.create!(first_name: "Jill", last_name: "Jones", handle: "jill.j", email: "jill.jones@maily.com", password: "654321", mentor_id: user1.id)
