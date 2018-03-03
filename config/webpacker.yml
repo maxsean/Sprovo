@@ -63,4 +63,4 @@ production:
   compile: false
 
   # Cache manifest.json for performance
-  cache_manifest: false
+  cache_manifest: true
