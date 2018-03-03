@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  railsAssetImagePath = filePath => railsAssetHelper[filePath];
+  railsAssetImagePath = filePath => `/assets/${filePath}`;
 }
 
 export { railsAssetImagePath }
