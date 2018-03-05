@@ -59,7 +59,7 @@ class MenteeProfile extends React.Component {
 
 
   render() {
-    let first_name, last_name, email, bio, user, picture, error, id, current_user;
+    let first_name, last_name, email, bio, user, picture, error, id, current_user, phone, school;
     if (this.state.current_user) {
       current_user = this.state.current_user
     }
@@ -71,6 +71,8 @@ class MenteeProfile extends React.Component {
       bio = this.state.user.bio
       user = this.state.user
       id = this.state.user.id
+      phone = this.state.user.phone
+      school = this.state.user.school
 
       picture = railsAssetImagePath(`default_photo.png`)
 
@@ -105,14 +107,21 @@ class MenteeProfile extends React.Component {
             </div>
             <div className="contact">
               <div>
-                <Glyphicon glyph="earphone">
-                  &nbsp;1-305-888-5522
-                </Glyphicon>
-              </div>
-              <div>
-                <Glyphicon glyph="envelope">
-                  &nbsp;{email}
-                </Glyphicon>
+                <div>
+                  <Glyphicon glyph="earphone">
+                    &nbsp;{phone}
+                  </Glyphicon>
+                </div>
+                <div>
+                  <Glyphicon glyph="envelope">
+                    &nbsp;{email}
+                  </Glyphicon>
+                </div>
+                <div>
+                  <Glyphicon glyph="book">
+                    &nbsp;{school}
+                  </Glyphicon>
+                </div>
               </div>
             </div>
           </div>

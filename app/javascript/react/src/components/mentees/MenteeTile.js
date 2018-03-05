@@ -7,7 +7,7 @@ const MenteeTile = (props) => {
 
   function handleClick(event) {
     event.preventDefault();
-    window.location.assign(`/student/${props.mentee.id}`)
+    window.location.assign(`/student/${props.mentee.handle}`)
   };
 
   let image = railsAssetImagePath(`default_photo.png`)
@@ -21,19 +21,24 @@ const MenteeTile = (props) => {
       className="mentee-tile"
       onClick={handleClick}
       >
-      <img width={50} height={50} src={image}/>
+      <img src={image}/>
       <div>
         <strong><p>{props.mentee.last_name}, {props.mentee.first_name} </p></strong>
       </div>
       <div className="contact" style={{fontSize:"0.5em"}}>
         <span>
           <Glyphicon glyph="earphone">
-            &nbsp;1-305-888-5522
+            &nbsp;{props.mentee.phone}
           </Glyphicon>
         </span>
         <span>
           <Glyphicon glyph="envelope">
             &nbsp;{props.mentee.email}
+          </Glyphicon>
+        </span>
+        <span>
+          <Glyphicon glyph="book">
+            &nbsp;{props.mentee.school}
           </Glyphicon>
         </span>
       </div>
