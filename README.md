@@ -48,6 +48,8 @@ and for Jasmine-Enzyme tests run `karma start`.
 ## Assumptions
 * Sign in required to view any user profile (no public access). Thus teachers, coaches, and recruiters would need to sign in to view a student profile. These permissions are mostly handled in the backend (see `/app/controllers/api/v1/mentees_controller.rb`)
 * Academic course and sport names are unique. Ideally some uuid will be better suited to find a specific course or sport. That being said, there is no implementation of repeat courses. One would simply replace the original record for that course.
+* Only the admin can assign students to mentors through the rails-admin interface.
+* Mentors cannot alter grades and statistics of students who are not assigned to them.
 
 ## ToDo
 ### Unit and Feature Tests
