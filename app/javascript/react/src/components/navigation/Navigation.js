@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import SignOutLink from '../auth/SignOutLink'
+import SignOutLink from '../auth/SignOutLink';
+import { railsAssetImagePath } from '../../constants/railsAssetImagePath'
 
 class Navigation extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Navigation extends React.Component {
         <Navbar fixedTop collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">Sporvo</a>
+              <a href="/"><img height={50} src={railsAssetImagePath(`sporvo.png`)} style={{marginTop:"-15px"}}/></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
