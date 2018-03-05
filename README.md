@@ -7,6 +7,7 @@ This is the initial implementation of Sporvo's website. It currently features ke
 ## Technologies
 * [Ruby on Rails](https://github.com/rails/rails): back-end mainly used for API endpoints
 * [React.js](https://github.com/facebook/react) and [React-Router](https://github.com/ReactTraining/react-router): for quick and responsive user experience
+* [Webpacker](https://github.com/rails/webpacker): manages javascript for rails apps
 * [React-Bootstrap](https://github.com/react-bootstrap/react-bootstrap): Responsive templates
 * [Devise](https://github.com/plataformatec/devise): User Authentication
 * [Rails-Admin](https://github.com/sferik/rails_admin): Admin interface and tools
