@@ -5,6 +5,8 @@ import ProfileImage from '../components/profile/ProfileImage';
 import MenteeList from '../components/mentees/MenteeList';
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert, Modal, Button } from 'react-bootstrap';
 
+//only mentor has access to this profile. should mentees be able to see mentor profile?
+
 class MentorProfile extends React.Component {
   constructor(props) {
     super(props);

@@ -1,5 +1,5 @@
 class Api::V1::UsersController < Api::V1::ApiController
-
+#too much logic. consider making module or move business logic to models
   def update
     body = JSON.parse(request.body.read)
     to_update = body["user"]
@@ -17,7 +17,7 @@ class Api::V1::UsersController < Api::V1::ApiController
           phone: to_update["phone"],
           school: to_update["school"],
         )
-        
+
         render json: {success: "Update Successful"}
       end
     else

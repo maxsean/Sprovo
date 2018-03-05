@@ -5,6 +5,8 @@ import StatsSport from '../components/athletics/StatsSport';
 import { Breadcrumb, Glyphicon, Tabs, Tab, Alert, Jumbotron, Button } from 'react-bootstrap';
 import { railsAssetImagePath } from '../constants/railsAssetImagePath';
 
+//student public facing profile. mentor also has a version of this at `/student/${handle}` which is only accessed by typing the url directly. consider modifying for mentor version.
+
 class MenteeProfile extends React.Component {
   constructor(props) {
     super(props);

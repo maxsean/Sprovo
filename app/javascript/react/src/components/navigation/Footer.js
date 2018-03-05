@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Glyphicon } from 'react-bootstrap';
 import { railsAssetImagePath } from '../../constants/railsAssetImagePath'
 
+//social media buttons don't go anywhere for now. consider opening new tab for associated social media sites
 const Footer = (props) => {
   return(
     <div className="footer-container">
@@ -46,7 +47,7 @@ const Footer = (props) => {
           </Button>
         </div>
 
-        <a href="#">Contact Us</a>
+        <a href="/contact">Contact Us</a>
         <p>SPORVO &copy; 2018. All Rights Reserved</p>
       </div>
     </div>

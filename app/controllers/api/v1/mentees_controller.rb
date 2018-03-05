@@ -1,4 +1,5 @@
 class Api::V1::MenteesController < Api::V1::ApiController
+  #too much logic. consider making module or move business logic to models
 
   def index
     if current_user
