@@ -132,6 +132,7 @@ class Profile extends React.Component {
         {signin}
         <div className="profile-header">
           <h2>{first_name} {last_name}</h2>
+          <Button onClick={() => {window.location.assign(`/student/${this.props.user.handle}`)}}>Preview Profile</Button>
         </div>
         {error}
         {success}
