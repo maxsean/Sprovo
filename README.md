@@ -54,7 +54,7 @@ and for Jasmine-Enzyme tests run `karma start`.
 ## ToDo
 
 ### User Password Reset
-Right now, password reset relies on Devise's controllers and views (try url: `_domain name_/users/sign_in` and `_domain name_/users/password/new`). For better user experience, make this compatible with the javascript front end.
+Right now, password reset relies on Devise's controllers and views (try url: `<domain name>/users/sign_in` and `<domain name>/users/password/new`). For better user experience, make this compatible with the javascript front end.
 
 ### Unit and Feature Tests
 There is a lack of unit and feature tests that needs to be addressed. The Rspec and Capybara tests are stored in `/spec` and the Jasmine-Enzyme tests are stored in `/app/javascript/react/test`
