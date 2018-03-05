@@ -11,17 +11,9 @@ class SignInForm extends React.Component {
       password: "",
       error: null
     };
-    this.clearForm = this.clearForm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSignInClick = this.handleSignInClick.bind(this);
     this.postSignIn = this.postSignIn.bind(this)
-  };
-
-  clearForm() {
-    this.setState({
-      email: "",
-      password: ""
-    });
   };
 
   handleChange(event) {
@@ -40,7 +32,6 @@ class SignInForm extends React.Component {
       authenticity_token: Functions.getMetaContent("csrf-token")
     }
     this.postSignIn(formPayload);
-    this.clearForm()
   };
 
   postSignIn(formPayload) {

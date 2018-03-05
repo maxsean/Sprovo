@@ -45,14 +45,6 @@ class BioForm extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
-    // .then(response => { return response.json() })
-    // .then(data => {
-    //   if (data.errors) {
-    //     this.setState({ errors: data.errors })
-    //   } else {
-    //     window.location.assign("/profile")
-    //   }
-    // })
   };
 
   render() {
