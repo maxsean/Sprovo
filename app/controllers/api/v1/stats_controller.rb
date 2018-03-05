@@ -1,4 +1,5 @@
 class Api::V1::StatsController < Api::V1::ApiController
+  #too much logic. consider making module or move business logic to models
 
   def create
     body = JSON.parse(request.body.read)

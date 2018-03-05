@@ -45,59 +45,56 @@ class Welcome extends React.Component {
               <Carousel.Item>
                 <img  src={railsAssetImagePath(`carousel1.jpg`)} />
                 <Carousel.Caption>
-                  <h2>
-                    STUDENT ATHLETE
-                  </h2>
-                  <h2 style={{color:"#F5852B"}}>
-                    MENTOR-SHIP
-                  </h2>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-                  {signInButton}
-                  {signUpButton}
+                  <h3>
+                    Student Athlete
+                  </h3>
+                  <h3 style={{color:"#F5852B"}}>
+                    Mentor-ship
+                  </h3>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img  src={railsAssetImagePath(`carousel2.jpg`)} />
                 <Carousel.Caption>
-                  <h2>
-                    SED UT PERSPICIATIS
-                  </h2>
+                  <h3>
+                    Our Mission
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    We provide a progress monitoring mentorship for student athletes, by student athletes, while competing academically as well as athletically.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img  src={railsAssetImagePath(`carousel3.jpg`)} />
                 <Carousel.Caption>
-                  <h2>
-                    SED UT PERSPICIATIS
-                  </h2>
+                  <h3>
+                    Our Vision
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    We strive to expand communication avenues among key players in a students life, instill a positive character foundation and a Together Everyone Achieves More mentality in all of our student athletes and families.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
               <Carousel.Item>
                 <img  src={railsAssetImagePath(`carousel4.jpg`)} />
                 <Carousel.Caption>
-                  <h2>
-                    SED UT PERSPICIATIS
-                  </h2>
+                  <h3>
+                    Goals For Our Student Athletes
+                  </h3>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    We expect our Student Athletes to embrace the support of our experienced mentors, increase work ethic values, and compete academically as well as athletically amongst their peers.
                   </p>
                 </Carousel.Caption>
               </Carousel.Item>
             </Carousel>
+            <br/>
             <Jumbotron>
-              <h1>STUDENT ATHLETE</h1>
-              <h1>MENTOR-SHIP</h1>
+              <h4>STUDENT ATHLETE MENTOR-SHIP</h4>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                We provide a progress monitoring mentorship for student athletes, by student athletes, while competing academically as well as athletically.
               </p>
+              <p>We strive to expand communication avenues among key players in a students life, instill a positive character foundation and a Together Everyone Achieves More mentality in all of our student athletes and families.</p>
+              <p>We expect our Student Athletes to embrace the support of our experienced mentors, increase work ethic values, and compete academically as well as athletically amongst their peers.</p>
               {signInButton}
               {signUpButton}
             </Jumbotron>

@@ -53,3 +53,19 @@
   width: 30%;
   height: auto;
 }
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .user-basics {
+    width: 100%;
+    height: auto;
+  }
+  .tabs-container {
+    width: 100%;
+    height: auto;
+    font-size: 2em;
+  }
+}

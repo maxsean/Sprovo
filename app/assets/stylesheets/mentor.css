@@ -16,8 +16,27 @@
 
 .mentee-tile img {
   margin-right: 10px;
+  width: 50px;
+  height: 50px;
 }
 
 .mentee-tile div {
   margin: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .mentee-tile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .mentee-tile img {
+    width: 75px;
+    height: 75px;
+  }
+
+  .mentee-tile div {
+    margin: 0;
+  }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
-import { Modal } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap';
 import Welcome from './containers/Welcome';
 import Navigation from './components/navigation/Navigation';
 import SignInForm from './components/auth/SignInForm';
@@ -9,7 +9,9 @@ import SignOutLink from './components/auth/SignOutLink';
 import Footer from './components/navigation/Footer';
 import Profile from './containers/Profile';
 import MentorProfile from './containers/MentorProfile';
-import MenteeProfile from './containers/MenteeProfile'
+import MenteeProfile from './containers/MenteeProfile';
+import AboutUs from './containers/AboutUs';
+import ContactUs from './containers/ContactUs';
 
 class App extends React.Component {
   constructor(props) {
@@ -98,8 +100,10 @@ class App extends React.Component {
           />}
           />
           <Route path="/profile" render={() => <Profile user={this.state.user} fetchUser={this.fetchUser}/>}/>
-          <Route path="/mentor" render={() => <MentorProfile user={this.state.user} />}/>
+          <Route path="/mentor" render={() => <MentorProfile user={this.state.user} fetchUser={this.fetchUser} />}/>
           <Route path="/student/:id" component={MenteeProfile}/>
+          <Route path="/about" component={AboutUs}/>
+          <Route path="/contact" component={ContactUs}/>
           <Footer/>
         </div>
         <Modal show={this.state.signIn} onHide={this.handleCloseButton}>
