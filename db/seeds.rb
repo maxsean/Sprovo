@@ -4,7 +4,7 @@ admin2 = User.create!(first_name: "Richard", last_name: "Johnson", handle: "john
 
 user1 = User.create!(first_name: "John", last_name: "Smith", handle: "jsmith", email: "john.smith@maily.com", password: "123456", role: "mentor")
 
-user2 = User.create!(first_name: "Jill", last_name: "Jones", handle: "jill.j", email: "jill.jones@maily.com", password: "654321", mentor_id: user1.id)
+user2 = User.create!(first_name: "Jill", last_name: "Jones", handle: "jillj", email: "jill.jones@maily.com", password: "654321", mentor_id: user1.id)
 
 user3 = User.create!(first_name: "Franklin", last_name: "Brown", handle: "b_frank", email: "frank_brown@maily.com", password: "121212", mentor_id: user1.id)
 
